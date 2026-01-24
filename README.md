@@ -1,29 +1,121 @@
-# Create T3 App
+# Next.js Starter
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A modern, full-stack Next.js starter template with authentication, database ORM, and type-safe APIs.
 
-## What's next? How do I make an app with this?
+## Tech Stack
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **[Next.js 16](https://nextjs.org)** - React framework with App Router and Turbopack
+- **[Better Auth](https://www.better-auth.com/)** - Modern authentication library
+- **[tRPC](https://trpc.io)** - End-to-end type-safe APIs
+- **[Drizzle ORM](https://orm.drizzle.team)** - TypeScript ORM for PostgreSQL
+- **[Tailwind CSS v4](https://tailwindcss.com)** - Utility-first CSS framework
+- **[Biome](https://biomejs.dev/)** - Fast linter and formatter
+- **[React Query](https://tanstack.com/query)** - Powerful data synchronization
+- **[Zod](https://zod.dev)** - TypeScript-first schema validation
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Getting Started
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+### Prerequisites
 
-## Learn More
+- [Bun](https://bun.sh) v1.3.6 or later
+- PostgreSQL database
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+### Installation
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+```bash
+# Install dependencies
+bun install
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+# Set up environment variables
+cp .env.example .env
 
-## How do I deploy this?
+# Push database schema
+bun db:push
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+# Start development server
+bun dev
+```
+
+The app will be available at [http://localhost:3000](http://localhost:3000).
+
+## Available Scripts
+
+- `bun dev` - Start development server with Turbopack
+- `bun build` - Build for production
+- `bun start` - Start production server
+- `bun preview` - Build and start production server
+- `bun check` - Lint and format check with Biome
+- `bun check:write` - Lint and format with auto-fix
+- `bun typecheck` - Run TypeScript type checking
+- `bun db:push` - Push schema changes to database
+- `bun db:studio` - Open Drizzle Studio
+- `bun db:generate` - Generate migrations
+- `bun db:migrate` - Run migrations
+- `bun cz` - Create conventional commits
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── api/
+│       ├── auth/
+│       │   └── [...all]/
+│       │       └── route.ts
+│       └── trpc/
+│           └── [trpc]/
+│               └── route.ts
+├── env.ts
+├── lib/
+│   ├── auth/
+│   │   ├── auth-client.ts
+│   │   ├── auth-utils.ts
+│   │   └── auth.ts
+│   ├── db/
+│   │   ├── index.ts
+│   │   └── schemas/
+│   │       ├── auth-schema.ts
+│   │       └── index.ts
+│   └── trpc/
+│       ├── query-client.ts
+│       ├── react.tsx
+│       ├── root.ts
+│       ├── routers/
+│       │   └── post.ts
+│       ├── server.ts
+│       └── trpc.ts
+├── provider.tsx
+└── styles/
+	└── globals.css
+```
+
+## Features
+
+- ✅ Server Components & Server Actions
+- ✅ Type-safe database queries with Drizzle ORM
+- ✅ Full-stack type safety with tRPC
+- ✅ Authentication with Better Auth
+- ✅ PostgreSQL database
+- ✅ Tailwind CSS v4 with CSS-first configuration
+- ✅ Code quality tools (Biome, TypeScript, Husky)
+- ✅ Conventional commits with Commitizen
+
+## Environment Variables
+
+Create a `.env` file based on `.env.example` and configure:
+
+- `DATABASE_URL` - PostgreSQL connection string
+- `BETTER_AUTH_SECRET` - Secret for Better Auth
+- Additional auth provider credentials (if using OAuth)
+
+## Deployment
+
+This project can be deployed to:
+
+- [Vercel](https://vercel.com) (recommended)
+- [Netlify](https://netlify.com)
+- Any platform supporting Next.js
+
+Make sure to configure environment variables and set up your PostgreSQL database in production.
