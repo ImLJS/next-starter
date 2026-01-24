@@ -1,5 +1,5 @@
 import { ThemeProvider } from "next-themes";
-import { TRPCReactProvider } from "@/trpc/react";
+import { TRPCReactProvider } from "@/lib/trpc/react";
 
 export const Provider = ({ children }: { children: React.ReactNode }) => {
 	return (
