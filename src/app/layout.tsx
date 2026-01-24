@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
-import { TRPCReactProvider } from "@/trpc/react";
+import { Provider } from "@/provider";
 
 export const metadata: Metadata = {
 	title: "Next Starter",
@@ -19,9 +19,9 @@ const geist = Geist({
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<html className={`${geist.variable}`} lang="en">
+		<html className={`${geist.variable}`} lang="en" suppressHydrationWarning>
 			<body>
-				<TRPCReactProvider>{children}</TRPCReactProvider>
+				<Provider>{children}</Provider>
 			</body>
 		</html>
 	);
