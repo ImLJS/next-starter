@@ -1,5 +1,18 @@
 {
+	// always choose typescript from node_modules
+	"typescript.tsdk": "./node_modules/typescript/lib",
+	// use LF line endings
+	"files.eol": "\n",
+	"editor.codeActionsOnSave": {
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll.biome": "explicit"
+	},
 	"editor.defaultFormatter": "biomejs.biome",
-	"biome.requireConfiguration": false,
-	"files.eol": "\n"
+	"files.associations": {
+		"*.css": "tailwindcss"
+	},
+	"editor.formatOnSave": true,
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	}
 }
